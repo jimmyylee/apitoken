@@ -1,0 +1,17 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Book extends Model
+{
+    protected $fillable = [
+        'name', 'author' ,'uploaded_by'
+    ];
+
+    public function admin()
+    {
+        return $this->hasOne('App\User','id','uploaded_by');
+    }
+}
